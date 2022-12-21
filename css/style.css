@@ -4,8 +4,9 @@
     box-sizing: border-box;
 }
 
-body{
+#app{
     height: 100vh;
+    width: 100vw;
     background-color: #009688;
     background-image:
       linear-gradient(
@@ -16,68 +17,64 @@ body{
         #DCDBD2 85%,
         #DCDBD2 85%
     );
-    padding: 20px 0;;
-}
-.sidebar{
-    width: 30%;
-    color: white;
-}
-.main{
-    width: 70%;
-}
-.user{
-    background-color: #EAEAEA;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-}
-.user-info{
-    display: flex;
-    align-items: center;
-}
-.user-img {
-    width: 50px;
-    height: 50px;
-   
-    margin-right: 10px;
-  }
-  .user-img img {
-    width: 100%;
-    border-radius: 50%;
-  }
-  .user-name{
-    color: black;
-  }
-  .icone-user{
-    width: 20%;
-    color: #B1B1B1;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 20px;
-  }
-  .notifica {
-    background-color: #8EDAFC;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-  }
-  .notifica_img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:white;
+}
+.container{
+    display: flex;
+    height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+}
+.contatti{
+    width: 40%;
+
+}
+.header-contatti{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: lightgrey;
+}
+.user-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.user-img img{
+    width: 100%;
+}
+.icone-contatti i{
+    margin: 0 15px;
+    color: gray;
     font-size: 20px;
-    color: #8EDAFC;
-    margin-right: 10px;
-  }
-  
-  .notifica_info a {
-    color: #888888;
-    font-size: 13px;
-  }
+}
+.notifiche{
+    background-color: aquamarine;
+    display: flex;
+   
+    align-items: center;
+    padding: 15px;
+}
+.notifiche-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 50px;
+}
+.notifiche-img i{
+    padding: 15px 0 5px 15px;
+    color: grey;
+}
