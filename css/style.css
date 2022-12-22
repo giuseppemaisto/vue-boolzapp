@@ -78,3 +78,19 @@
     padding: 15px 0 5px 15px;
     color: grey;
 }
+.cerca{
+    padding: 5px;
+    background-color: #eaeaea;
+    text-align: center;
+}
+.icona-cerca{
+    height: 40px;
+    border: none;
+    background-color: white;
+    padding: 10px 10px 0 0;
+}
+.cerca input{
+    height: 30px;
+    width: 90%;
+    border: none;
+}
