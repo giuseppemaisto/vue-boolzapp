@@ -94,3 +94,101 @@
     width: 90%;
     border: none;
 }
+.list{
+    height: 70%;
+    overflow-y: auto;
+    list-style-type: none;
+}
+.contatto-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.contatto-img img{
+    width: 100%;
+}
+.chat{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+
+}
+.contatto{
+    display: flex;
+}
+.stato{
+    padding-top: 10px;
+    font-size: 12px;
+    color: grey;
+}
+.ora{
+    font-size: 12px;
+    color: gray;
+}
+.messaggi{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.header-messaggi{
+    display: flex;
+    
+}
+.profili-img img{
+    width: 40px;
+}
+.corpo-msg{
+    height: 85%;
+   overflow-y: auto;
+   background-image: url(../img/mine.jpg);
+
+}
+
+.green{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+.sfondo-verde{
+    background-color: #009688;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+.white{
+    display: flex;
+    justify-content: flex-start;
+   
+}
+.sfondo-bianco{
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+.footer{
+    background-color: #f3eaeaea;
+    display: flex;
+    height: 5%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.scrivi-messaggio{
+    width: 100%;
+    text-align: center;
+}
+.scrivi-messaggio input{
+    width: 95%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+.emoji, .audio{
+    color: #6b7274;
+    font-size: 20px;
+    text-align: center;
+}

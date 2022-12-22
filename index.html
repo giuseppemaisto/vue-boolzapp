@@ -42,10 +42,81 @@
                         <input type="search" placeholder="cerca o inizia un anuova chat">
                     </div>
                 </div>
+                <ul class="list">
+                    <li v-for="(item,index) in contact">
+                        <div class="chat">
+                            <div class="contatto">
+                                <div class="contatto-img">
+                                    <img :src=" `./img/avatar${item.avatar}.jpg`" alt="">
+                                </div>
+                                <div class="info-contatto">
+                                    <p class="nome-contatto">{{item.name}}</p>
+                                    <p class="stato">ultimo messaggio inviato </p>
 
-                
+                                </div>
+                            </div>
+                            <div class="ora">12:00</div>
+                        </div>
+                    </li>
+                </ul>
+
+
             </div>
-       </div>
+
+        <div class="messaggi">
+            <div class="header-messaggi">
+                <div class="messaggio-user">
+                    <div class="user-img">
+                        <img src="./img/avatar_8.jpg" alt="">
+                    </div>
+                </div class="info-profilo"> 
+                <h4>nome </h4>
+              
+                </div>
+             
+             <div class="icone-msg">
+                <i class="fa solid fa-magnifyng-glass"></i>
+                <i class="fa solid fa-paperclip"></i>
+                <i class="fa solid fa-ellipsis-vertical"></i>
+             </div>
+          
+             <div class="corpo-msg">
+                 <div class="chat-msg">
+                     <div class="msg-inviato green">
+                        <div class="sfondo-verde">
+                         <p>Hai portato a spasso il cane?</p>
+                         <div class="ora-invio">15:30</div>
+                        </div>
+                     </div>
+                     <div class="msg-inviato green my-3">
+                        <div class="sfondo-verde">
+                         <p>ricordati di stenderre i panni </p>
+                         <div class="ora-invio">15:30</div>
+                        </div>
+                     </div>
+                     <div class="msg-ricevuto white">
+                        <div class="sfondo-bianco">
+                         <p>tutto fatto </p>
+                         <div class="ora-invio">15:30</div>
+                        </div>
+                     </div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div class="emoji">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <div class="scrivi-messaggio">
+                        <input type="text" placeholder="scrivi messaggio">
+                    </div>
+                    <div class="audio">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 
