@@ -1,127 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
-    <title>VUE-BOOLZAPP</title>
-</head>
-<body>
-    <div id="app">
-       <div class="container">
-            <div class="contatti">
-                <div class="header-contatti">
-                    <div class="user">
-                        <div class="user-img">
-                            <img src="./img/avatar_io.jpg" alt="user-img">
-                            <h4>Sofia</h4>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./css/style.css">
+        <title>Boolzapp</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="container-app">
+                <div class="container-contatti">
+                    <div class="header-contatti">
+                        <div class="user">
+                            <div class="user-img">
+                                <img src="./img/avatar_io.jpg" alt="my-pfp">
+                            </div>
+                            <span> Sofia </span>
                         </div>
-                        <div class="icone-contatti">
+                        <div class="icons-contatti">
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-message"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                </div>
-                <div class="notifiche">
-                    <div class="notifiche-img">
-                        <i class="fa-solid fa-bell-slash"></i>
+                    <div class="notifiche">
+                        <div class="bell">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="link-notifiche">
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
                     </div>
-                    <div class="notifiche-link">
-                        <p>ricevi notifiche di nuovi messaggi</p>
-                        <a href="#">attiva notifiche desktop</a>
+                    <div class="search-bar">
+                        <button class="lente">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input type="search" placeholder="  Cerca o inizia una nuova chat" v-model="cerca">
                     </div>
-                </div>
-                <div class="cerca">
-                    <div class="icona-cerca">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" placeholder="cerca o inizia un anuova chat">
-                    </div>
-                </div>
-                <ul class="list">
-                    <li v-for="(item,index) in contact">
-                        <div class="chat">
-                            <div class="contatto">
-                                <div class="contatto-img">
-                                    <img :src=" `./img/avatar${item.avatar}.jpg`" alt="">
+                    <ul class="list">
+                        <li v-for="(item, index) in search_contact"  v-bind:class="(activeChat == index) ? 'active' : '' " @click="changeChat(index)">
+                            <div class="container-chat">
+                                <div class="contatto">
+                                    <div class="container-img">
+                                        <img :src="`./img/avatar${item.avatar}.jpg`" alt="">
+                                    </div>
+                                    <div class="lista-contatti">
+                                        <p class="nome-utente">{{item.name}}</p> 
+                                        <p class="last-message">Ultimo messaggio inviato</p>
+                                    </div>
                                 </div>
-                                <div class="info-contatto">
-                                    <p class="nome-contatto">{{item.name}}</p>
-                                    <p class="stato">ultimo messaggio inviato </p>
-
-                                </div>
+                                <div class="ora"> 12:00</div>
                             </div>
-                            <div class="ora">12:00</div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="container-messaggi">
+                    <div class="header-messaggi">
+                        <div class="contact">
+                            <div class="user-img">
+                                <img :src="`./img/avatar${contacts[activeChat].avatar}.jpg`" alt="pfp">
+                            </div>
+                            <div>
+                                <p >{{contacts[activeChat].name}}</p>
+                                <p class="last-message">Ultimo accesso oggi alle 12:00</p>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-
-
+                        <div class="icons-messaggi">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="corpo-messaggi">
+                        <div class="container-chat-message" >
+                            <div class="message" v-for="(message, index) in contacts[activeChat].messages" v-bind:class="(message.status == 'sent') ? 'sent' : 'received'">
+                                <p>{{contacts[activeChat].messages[index].message}}</p>
+                                <div class="ora-invio" >{{formatDate(index)}}</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="emoji">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+                        <div class="scrivi-messaggio">
+                            <input type="text" placeholder="   Scrivi un messaggio" v-model="nuovo" @keyup.enter="newMessage()" >
+                        </div>
+                        <div class="audio">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        <div class="messaggi">
-            <div class="header-messaggi">
-                <div class="messaggio-user">
-                    <div class="user-img">
-                        <img src="./img/avatar_8.jpg" alt="">
-                    </div>
-                </div class="info-profilo"> 
-                <h4>nome </h4>
-              
-                </div>
-             
-             <div class="icone-msg">
-                <i class="fa solid fa-magnifyng-glass"></i>
-                <i class="fa solid fa-paperclip"></i>
-                <i class="fa solid fa-ellipsis-vertical"></i>
-             </div>
-          
-             <div class="corpo-msg">
-                 <div class="chat-msg">
-                     <div class="msg-inviato green">
-                        <div class="sfondo-verde">
-                         <p>Hai portato a spasso il cane?</p>
-                         <div class="ora-invio">15:30</div>
-                        </div>
-                     </div>
-                     <div class="msg-inviato green my-3">
-                        <div class="sfondo-verde">
-                         <p>ricordati di stenderre i panni </p>
-                         <div class="ora-invio">15:30</div>
-                        </div>
-                     </div>
-                     <div class="msg-ricevuto white">
-                        <div class="sfondo-bianco">
-                         <p>tutto fatto </p>
-                         <div class="ora-invio">15:30</div>
-                        </div>
-                     </div>
-                    </div>
-                </div>
-
-                <div class="footer">
-                    <div class="emoji">
-                        <i class="fa-regular fa-face-smile"></i>
-                    </div>
-                    <div class="scrivi-messaggio">
-                        <input type="text" placeholder="scrivi messaggio">
-                    </div>
-                    <div class="audio">
-                        <i class="fa-solid fa-microphone"></i>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-
-
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="text/javascript" src="./js/script.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.1/luxon.js" integrity="sha512-DHvfggcXxUTF6DOS9SKqOW46hefDt/tZQMGnfk4RL7bjsw1vUKJoLYay4VcrSQ6kZbOoq71Eo+Zor7BMK/UxCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.1/luxon.min.js" integrity="sha512-hZKz8wkgOcWeZanRioE6H6AC3OJspzJQyDBB5jLoZ1jIKbYDt5MwVIvU703WwE4sjvKZw9uNmmYlt29xKS27RA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
+    </body>
 </html>

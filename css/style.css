@@ -1,194 +1,222 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 #app{
     height: 100vh;
     width: 100vw;
-    background-color: #009688;
-    background-image:
-      linear-gradient(
-        to bottom, 
-        #009688,
-        #009688 15%,
-        #DCDBD2 15%,
-        #DCDBD2 85%,
-        #DCDBD2 85%
-    );
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: rgb(217,219,212);
+background: linear-gradient(0deg, rgba(217,219,212,1) 85%, rgba(0,150,136,1) 85%);
+font-family: 'Roboto', sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-.container{
+
+.container-app{
     display: flex;
     height: 90vh;
     width: 80%;
     margin: 0 auto;
     background-color: white;
 }
-.contatti{
-    width: 40%;
 
+.container-contatti{
+    width: 40%;
+    border-right: 1px solid #d6d5d8;
 }
-.header-contatti{
+
+.header-contatti , .header-messaggi{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #eaeaea;
 }
-.user{
-    width: 100%;
+
+.user , .contact{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: lightgrey;
 }
+
 .user-img{
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 20px;
+    border-radius:50px;
+    overflow:hidden ;
+    margin-right: 10px;
 }
+
 .user-img img{
     width: 100%;
 }
-.icone-contatti i{
+
+.icons-contatti i, .icons-messaggi i{
     margin: 0 15px;
-    color: gray;
+    color: #b1b1b1;
     font-size: 20px;
 }
+
 .notifiche{
-    background-color: aquamarine;
+    background-color: #8edafc;
     display: flex;
-   
     align-items: center;
     padding: 15px;
 }
-.notifiche-img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+
+.bell{
     background-color: white;
-    margin-right: 50px;
+    color:  #8edafc;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
-.notifiche-img i{
-    padding: 15px 0 5px 15px;
-    color: grey;
+
+.link-notifiche p{
+    font-size: 15px;
 }
-.cerca{
+
+.link-notifiche a{
+    font-size: 13px;
+    color: #659cb5;
+}
+
+.search-bar{
     padding: 5px;
     background-color: #eaeaea;
     text-align: center;
 }
-.icona-cerca{
+
+.lente{
     height: 40px;
     border: none;
     background-color: white;
-    padding: 10px 10px 0 0;
+    padding: 7px;
 }
-.cerca input{
-    height: 30px;
-    width: 90%;
+
+.search-bar input{
+    height: 40px;
+    width: 92%;
     border: none;
 }
+
 .list{
-    height: 70%;
+    height: 75%;
     overflow-y: auto;
-    list-style-type: none;
 }
-.contatto-img{
+
+.container-img{
     width: 60px;
     height: 60px;
-    border-radius: 50px;
-    overflow: hidden;
+    border-radius:50px;
+    overflow:hidden ;
     margin-right: 15px;
 }
-.contatto-img img{
+
+.container-img img{
     width: 100%;
 }
-.chat{
-    width: 90%;
+
+.container-chat{
+    width: 98%;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-
+    border-top: 1px solid #d6d5d8;
 }
+
+.container-chat:hover{
+    cursor: pointer;
+}
+
 .contatto{
     display: flex;
 }
-.stato{
+
+.last-message{
+    color: #a9a7aa;
     padding-top: 10px;
-    font-size: 12px;
-    color: grey;
+    font-size: 13px;
 }
+
 .ora{
+    color: #bfbec0;
     font-size: 12px;
-    color: gray;
 }
-.messaggi{
+
+.container-messaggi{
     width: 60%;
+}
+
+.corpo-messaggi{
+    height: 85%;
+    overflow-y: auto;
+    background-image: url("../img/mine.jpg");
+}
+
+.container-chat-message{
+    width: 80%;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
 }
-.header-messaggi{
-    display: flex;
-    
-}
-.profili-img img{
-    width: 40px;
-}
-.corpo-msg{
-    height: 85%;
-   overflow-y: auto;
-   background-image: url(../img/mine.jpg);
 
+.message p{
+    padding: 15px 15px 5px 15px ;
 }
 
-.green{
-    display: flex;
-    justify-content: flex-end;
-   
+.ora-invio{
+    text-align: end;
+    padding: 5px;
+    font-size: 12px;
+    color: #a9a7aa;
 }
-.sfondo-verde{
-    background-color: #009688;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 20px;
+
+.sent{
+    background-color: #d5f9ba;
+    width: 40%;
+    margin: 10px 0;
+    border-radius: 10px;
+    align-self: flex-end;
 }
-.white{
-    display: flex;
-    justify-content: flex-start;
-   
-}
-.sfondo-bianco{
+
+.received{
     background-color: white;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 20px;
+    width: 40%;
+    margin: 10px 0;
+    border-radius: 10px;
+    align-self: flex-start;
 }
+
 .footer{
-    background-color: #f3eaeaea;
+    background-color: #f3eeea;
     display: flex;
     height: 5%;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 27px;
 }
+
 .scrivi-messaggio{
     width: 100%;
     text-align: center;
 }
+
 .scrivi-messaggio input{
     width: 95%;
     height: 40px;
     border: none;
     border-radius: 10px;
 }
+
 .emoji, .audio{
     color: #6b7274;
     font-size: 20px;
     text-align: center;
+}
+
+.active{
+    background-color: #e9ebeb;
 }
